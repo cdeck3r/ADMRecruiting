@@ -1,63 +1,28 @@
-# r-bayes
+# ADM Recruiting
 
-Jupyter environment made for Bayesian graphical modeling and inferencing.
+Today's recruiting experiences an accelerated use of automatic decision making (ADM) systems. These systems shall help to find to find the right candidate for the job. The approach is not limited to application-type inputs, but is also used by headhunters to crawl professional social networks. Apart from an automated machine support for these tasks, recruiters often connect the hope to impartially (unbiased?) find the perfect match.
 
-## What it Gives You
+## Research Objective
 
-It is based on [Jupyter Notebook R Stack](https://github.com/jupyter/docker-stacks/tree/master/r-notebook). 
+We want to understand the area where the decisions results of ADM systems and recruiters overlap. In particular, we are interested in the effect of an ADM's assessment about an applicant on a recruiter, if the ADM's verdict is known to this recruiter.
 
-Additionally, it provides
+As a result, we provide a first model to generate hypotheseses to be validated in future empirical research.
 
-* jags
-* [rjags](https://cran.r-project.org/package=rjags)
-* [HydeNet](https://cran.r-project.org/package=HydeNet)
-* [bnlearn](https://www.bnlearn.com/)
+## Results
 
-## Basic Usage
+link to notebook `recruiting_model.ipynb`
 
-Build the image
+## Quickstart
 
-```
-docker build -t r-bayes:latest -f Dockerfiles/Dockerfile.rbayes
-```
-
-Spin up the container using the command
-
-```
-docker run -it --rm -p 8008:8888 r-bayes:latest
-```
-
-Point your browser to http://localhost:8008/. 
-
-For other startup options check out [Jupyter Notebook R Stack](https://github.com/jupyter/docker-stacks/tree/master/r-notebook). 
-
-## Use with `docker-compose.yml`
-
-Docker compose setups an environment with the directory structure from the repository mounted in the container. The `docker-compose.yml` controls the mount points. Notebooks created in `work` within the container appear in the directory `notebooks` on the host system.
-
-**Setup:** Start in project's root dir and create a `.env` file with the content shown below.
-```
-# .env file
-
-# In the container, this is the directory where the directories from the host are found
-# Example:
-APP_ROOT=/r-bayes
-
-# the HOST directory containing directories to be mounted into containers
-# Example:
-VOL_DIR=/home/user/r-bayes
-```
-
-Create docker image
+Start in project's root dir. Create docker image
 
 ```bash
 docker-compose build r-bayes
 ```
 
-Spin up the container 
-
+Spin up the container and get a shell from the container
 ```bash
 docker-compose up -d r-bayes
 ```
 
-Point your browser to http://localhost:8008/. 
+Point your browser to http://localhost:8008/ and load the notebook `recruiting_model.ipynb`
